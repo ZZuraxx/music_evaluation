@@ -136,6 +136,11 @@ export default function Table({nameTable, onChange, query = ''})
                 getIndex++;
             }
 
+
+            if(curSchema.code === '_id') {
+                value = col.substr(0, 5)
+            }
+
             if(curSchema.type === 'Email') {
                 let mailTo = 'mailto:' + col;
                 value = <a href={mailTo}>{col}</a>

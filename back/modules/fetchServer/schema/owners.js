@@ -4,26 +4,31 @@ const owners = {
             type: 'String',
             require: true,
             default: 'None',
-            loc: "ФИО",
+            loc: "Имя исполнителя",
             sort: true,
             editable: true,
             //list: []
         },
-        PHONE: {
-            type: 'Phone',
+        BEST: {
+            type: 'String',
             require: true,
             default: 'None',
-            loc: "Телефон",
+            loc: "Лучший трек исполнителя",
             sort: true,
-            editable: true
         },
-        EMAIL: {
-            type: 'Email',
-            require: false,
+        WORST: {
+            type: 'String',
+            require: true,
             default: 'None',
-            loc: "E-mail",
+            loc: "Худший трек исполнителя",
             sort: true,
-            editable: true
+        },
+        OVERAGE: {
+            type: 'String',
+            require: true,
+            default: 'None',
+            loc: "Общая оценка исполнителя",
+            sort: true,
         },
     };
 

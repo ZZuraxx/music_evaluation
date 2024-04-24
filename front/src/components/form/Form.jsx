@@ -150,7 +150,6 @@ export default function Form({nameForm, arValue = {}}) {
         let curSchemaSim = obSchema[name].sim;
         let total = form.querySelector('input[name=' +curSchemaSim+ ']');
         let value = 0;
-
         if(curSchemaSim) {
             let method = obSchema[curSchemaSim].method;
             let arSimFields = obSchema[curSchemaSim].fields;
@@ -163,6 +162,10 @@ export default function Form({nameForm, arValue = {}}) {
             switch(method) {
                 case 'MULTIPLY':
                     value = arFields[0].value * arFields[1].value;
+                break;
+                case 'OVERAGE':
+                    console.log(arFields[0].value)
+                    value = arFields[0].value + arFields[1].value + arFields[2].value + arFields[3].value;
                 break;
             }
 
