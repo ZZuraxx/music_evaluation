@@ -24,7 +24,7 @@ const owners = {
             sort: true,
         },
         OVERAGE: {
-            type: 'String',
+            type: 'Number',
             require: true,
             default: 'None',
             loc: "Общая оценка исполнителя",

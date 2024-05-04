@@ -4,6 +4,13 @@ import config from "../../params/config";
 import InputMask from 'react-input-mask';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+//rating
+import { Rating, ThinStar } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
+
+
+
 //import MaterialInput from '@material-ui/core/Input';
 import { registerLocale } from  "react-datepicker";
 import { ru } from 'date-fns/locale/ru';
@@ -18,6 +25,13 @@ export default function Form({nameForm, arValue = {}}) {
     const [edit, setEdit] = useState(false);
     const [disabled, setDisabled] = useState(true);
     const [startDate, setStartDate] = useState(new Date());
+    const [rating, setRating] = useState(0);
+
+    const myStyles = {
+        itemShapes: ThinStar,
+        activeFillColor: '#ffb700',
+        inactiveFillColor: '#fbf1a9'
+      };
 
     useEffect(
         () => {
@@ -91,6 +105,11 @@ export default function Form({nameForm, arValue = {}}) {
                     newRow.field = 'date';
                 break;
 
+                case "Rating":
+                    newRow.fieldType = 'rating';
+                    newRow.field = "rating";
+                break;
+
                 case 'Hidden':
                 default:
                     newRow.fieldType = 'hidden';
@@ -115,6 +134,14 @@ export default function Form({nameForm, arValue = {}}) {
                                     readOnly={item.readOnly && true}
                                     step={(item.fieldType === 'number') ? item.step : null}
                                     name={item.code} />
+                            }
+
+                            {
+                                item.field === 'rating' && 
+                                    <>
+                                    <Rating style={{ maxWidth: 300 }} value={rating} onChange={setRating} itemStyles={myStyles} />
+                                    <input type='hidden' name={item.code} defaultValue={rating}/>
+                                    </>
                             }
 
                             {
@@ -165,7 +192,7 @@ export default function Form({nameForm, arValue = {}}) {
                 break;
                 case 'OVERAGE':
                     console.log(arFields[0].value)
-                    value = arFields[0].value + arFields[1].value + arFields[2].value + arFields[3].value;
+                    value = parseFloat((parseInt(arFields[0].value) + parseInt(arFields[1].value) + parseInt(arFields[2].value) + parseInt(arFields[3].value)) / 4);
                 break;
             }
 

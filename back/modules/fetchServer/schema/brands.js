@@ -20,7 +20,7 @@ const brands = {
         searchable: true,
     },
     RHYMES: {
-        type: 'Number',
+        type: 'Rating',
         require: true,
         default: 0,
         loc: "Рифмы/Образы",
@@ -31,7 +31,7 @@ const brands = {
         sim: 'OVERALL'
     },
     RHYTHMICS: {
-        type: 'Number',
+        type: 'Rating',
         require: true,
         default: 0,
         loc: "Ритмика/Структура",
@@ -42,7 +42,7 @@ const brands = {
         sim: 'OVERALL'
     },
     INDIVIDUALITY: {
-        type: 'Number',
+        type: 'Rating',
         require: true,
         default: 0,
         loc: "Индивидуальность/Харизма",
@@ -53,7 +53,7 @@ const brands = {
         sim: 'OVERALL'
     },
     ATMOSPHERE: {
-        type: 'Number',
+        type: 'Rating',
         require: true,
         default: 0,
         loc: "Атмосфера/Вайб",
@@ -64,12 +64,12 @@ const brands = {
         sim: 'OVERALL'
     },
     OVERALL: {
-        type: 'Number',
+        type: 'Rating',
+        step: 0.25,
         require: true,
-        default: 0,
         loc: "Общая оценка",
         sort: true,
-        editable: true,
+        editable: false,
         default: 0,
         method: 'OVERAGE',
         fields: ['ATMOSPHERE', 'INDIVIDUALITY', 'RHYTHMICS', 'RHYMES']
