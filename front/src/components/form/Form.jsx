@@ -25,13 +25,15 @@ export default function Form({nameForm, arValue = {}}) {
     const [edit, setEdit] = useState(false);
     const [disabled, setDisabled] = useState(true);
     const [startDate, setStartDate] = useState(new Date());
+    //rating
     const [rating, setRating] = useState(0);
-
     const myStyles = {
         itemShapes: ThinStar,
         activeFillColor: '#ffb700',
         inactiveFillColor: '#fbf1a9'
       };
+
+      
 
     useEffect(
         () => {

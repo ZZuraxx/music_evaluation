@@ -1,5 +1,15 @@
 const brands = {
     _id: {},
+    ARTIST: {
+        type: 'DBRef',
+        require: true,
+        default: 'None',
+        loc: "Исполнитель",
+        sort: true,
+        editable: true,
+        searchable: true,
+        collection: 'models'
+    },
     TITLE: {
         type: 'String',
         require: true,
@@ -9,15 +19,6 @@ const brands = {
         editable: true,
         searchable: true,
         //list: []
-    },
-    ARTIST: {
-        type: 'String',
-        require: true,
-        default: 'None',
-        loc: "Исполнитель",
-        sort: true,
-        editable: true,
-        searchable: true,
     },
     RHYMES: {
         type: 'Rating',
