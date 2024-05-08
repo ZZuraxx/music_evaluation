@@ -44,8 +44,6 @@ export default function Search({ onChange, nameCollection }) {
                     }
                 }
 
-                console.log(answer);
-
                 setSchema(answer);
             }
             fetchSchema();
