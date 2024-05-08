@@ -7,8 +7,7 @@ const brands = {
         loc: "Исполнитель",
         sort: true,
         editable: true,
-        searchable: true,
-        collection: 'models'
+        collection: 'artist'
     },
     TITLE: {
         type: 'String',
