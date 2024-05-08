@@ -13,7 +13,7 @@ export default function Rate({code, value}) {
       };
       return (
         <>
-        <Rating style={{ maxWidth: 300 }} value={rating} onChange={setRating} itemStyles={myStyles} />
+        <Rating  style={{ maxWidth: 300 }} value={rating} onChange={setRating} itemStyles={myStyles} />
         <input type='hidden' name={item.code} defaultValue={rating}/>
         </>
       )

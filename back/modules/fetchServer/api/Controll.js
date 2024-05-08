@@ -29,6 +29,7 @@ export default class Controll {
                 if(checkElement != '') {
                    switch(checkSchema.type) {
                     case "Number":
+                        case 'Rating':
                         data[i] = parseFloat(checkElement);
                     break;
 

@@ -63,8 +63,8 @@ const brands = {
         step: 0.1,
         sim: 'OVERALL'
     },
-    OVERALL: {
-        type: 'Rating',
+    OVERAGE: {
+        type: 'Rating_Overage',
         step: 0.25,
         require: true,
         loc: "Общая оценка",

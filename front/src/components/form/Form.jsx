@@ -107,6 +107,10 @@ export default function Form({ nameForm, arValue = {} }) {
                     newRow.fieldType = "rating";
                     newRow.field = "rating";
                     break;
+                case 'Rating_Overage':
+                    newRow.fieldType = "rating_overage";
+                    newRow.field = "rating_overage";
+                    break;
 
                 case "Hidden":
                 default:
@@ -139,6 +143,28 @@ export default function Form({ nameForm, arValue = {} }) {
                                 }
                                 name={item.code}
                             />
+                        )}
+
+                        {item.field === "rating_overage" && (
+                            <>
+                                <Rating
+                                    readOnly
+                                    style={{ maxWidth: 200 }}
+                                    value={rating[item.code]}
+                                    onChange={(selectedValue) => {
+                                        let ob = {};
+                                        ob[item.code] = selectedValue;
+                                        setRating((prevData) => ({ ...prevData, ...ob }))
+                                        }
+                                    }
+                                    itemStyles={myStyles}
+                                />
+                                <input
+                                    type="hidden"
+                                    name={item.code}
+                                    defaultValue={rating[item.code]}
+                                />
+                            </>
                         )}
 
                         {item.field === "rating" && (
@@ -214,7 +240,6 @@ export default function Form({ nameForm, arValue = {} }) {
                     value = arFields[0].value * arFields[1].value;
                     break;
                 case "OVERAGE":
-                    console.log(arFields[0].value);
                     value = parseFloat(
                         (parseInt(arFields[0].value) +
                             parseInt(arFields[1].value) +
@@ -222,7 +247,9 @@ export default function Form({ nameForm, arValue = {} }) {
                             parseInt(arFields[3].value)) /
                             4
                     );
-                    break;
+                        let ob = {};
+                        ob.OVERAGE = value;
+                        setRating((prevData) => ({ ...prevData, ...ob }))
             }
 
             total.value = value;
