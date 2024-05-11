@@ -165,6 +165,7 @@ export default class MDB
         if(options.sort && options.sort.key) {
             let sort = {};
             sort[options.sort.name] = options.sort.key;
+            //
             unPreparedData = await this.collection.find().sort(sort).limit(options.sort.limit).toArray();
         }
         else {

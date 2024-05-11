@@ -65,3 +65,7 @@ form.editForm button:disabled {
     background: #999;
     cursor: not-allowed;
 }
+
+form .goto {
+    background: url('') no-repeat center;
+}

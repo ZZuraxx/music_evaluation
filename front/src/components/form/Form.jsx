@@ -107,7 +107,7 @@ export default function Form({ nameForm, arValue = {} }) {
                     newRow.fieldType = "rating";
                     newRow.field = "rating";
                     break;
-                case 'Rating_Overage':
+                case "Rating_Overage":
                     newRow.fieldType = "rating_overage";
                     newRow.field = "rating_overage";
                     break;
@@ -151,12 +151,6 @@ export default function Form({ nameForm, arValue = {} }) {
                                     readOnly
                                     style={{ maxWidth: 200 }}
                                     value={rating[item.code]}
-                                    onChange={(selectedValue) => {
-                                        let ob = {};
-                                        ob[item.code] = selectedValue;
-                                        setRating((prevData) => ({ ...prevData, ...ob }))
-                                        }
-                                    }
                                     itemStyles={myStyles}
                                 />
                                 <input
@@ -175,12 +169,16 @@ export default function Form({ nameForm, arValue = {} }) {
                                     onChange={(selectedValue) => {
                                         let ob = {};
                                         ob[item.code] = selectedValue;
-                                        setRating((prevData) => ({ ...prevData, ...ob }))
-                                        }
-                                    }
+                                        setRating((prevData) => ({
+                                            ...prevData,
+                                            ...ob,
+                                        }));
+                                        Overage(rating);
+                                    }}
                                     itemStyles={myStyles}
                                 />
                                 <input
+                                className='stars'
                                     type="hidden"
                                     name={item.code}
                                     defaultValue={rating[item.code]}
@@ -219,6 +217,24 @@ export default function Form({ nameForm, arValue = {} }) {
         );
     }
 
+    function Overage() {
+        let form = document.querySelector('form.editForm');
+        let arFields = form.querySelectorAll('input.stars');
+        let value = parseFloat(
+            (parseInt(arFields[0].value) +
+                parseInt(arFields[1].value) +
+                parseInt(arFields[2].value) +
+                parseInt(arFields[3].value)) /
+                4
+        );
+
+        let ob = {};
+        ob.OVERAGE = value;
+
+        console.log(value);
+        setRating((prevData) => ({ ...prevData, ...ob }));
+    }
+
     function callMethod(event) {
         let form = event.target.closest("form");
         let name = event.target.name;
@@ -247,9 +263,7 @@ export default function Form({ nameForm, arValue = {} }) {
                             parseInt(arFields[3].value)) /
                             4
                     );
-                        let ob = {};
-                        ob.OVERAGE = value;
-                        setRating((prevData) => ({ ...prevData, ...ob }))
+                    
             }
 
             total.value = value;
