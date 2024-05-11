@@ -151,12 +151,6 @@ export default function Form({ nameForm, arValue = {} }) {
                                     readOnly
                                     style={{ maxWidth: 200 }}
                                     value={rating[item.code]}
-                                    onChange={(selectedValue) => {
-                                        let ob = {};
-                                        ob[item.code] = selectedValue;
-                                        setRating((prevData) => ({ ...prevData, ...ob }))
-                                        }
-                                    }
                                     itemStyles={myStyles}
                                 />
                                 <input
@@ -184,6 +178,7 @@ export default function Form({ nameForm, arValue = {} }) {
                                     type="hidden"
                                     name={item.code}
                                     defaultValue={rating[item.code]}
+                                    value={rating[item.code]}
                                 />
                             </>
                         )}
@@ -247,9 +242,10 @@ export default function Form({ nameForm, arValue = {} }) {
                             parseInt(arFields[3].value)) /
                             4
                     );
-                        let ob = {};
-                        ob.OVERAGE = value;
-                        setRating((prevData) => ({ ...prevData, ...ob }))
+                    let ob = {};
+                    ob.OVERAGE = value;
+                    console.log(value)
+                    setRating((prevData) => ({ ...prevData, ...ob }))
             }
 
             total.value = value;
