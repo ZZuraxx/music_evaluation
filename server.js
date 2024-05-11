@@ -27,6 +27,7 @@ app.use((req, res, next) => {
 });
 
 
+
 app.get('/api/get/:CollectionName/', async (req, res) => {
     let collectionName = req.params.CollectionName.toLowerCase();
     let options = {};
@@ -74,6 +75,7 @@ app.get('/api/get/collection/list/', async(req, res) => {
     await mdb.getCollectionStats().then(result => {
         res.end(JSON.stringify(result));
     });
+    console.log(mdb)
 });
 
 
