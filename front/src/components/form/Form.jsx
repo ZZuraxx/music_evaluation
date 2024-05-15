@@ -173,7 +173,8 @@ export default function Form({ nameForm, arValue = {} }) {
                                             ...prevData,
                                             ...ob,
                                         }));
-                                        Overage(rating);
+                                        setTimeout(Overage, 500);
+                                        ;
                                     }}
                                     itemStyles={myStyles}
                                 />
@@ -220,18 +221,18 @@ export default function Form({ nameForm, arValue = {} }) {
     function Overage() {
         let form = document.querySelector('form.editForm');
         let arFields = form.querySelectorAll('input.stars');
-        let value = parseFloat(
-            (parseInt(arFields[0].value) +
-                parseInt(arFields[1].value) +
-                parseInt(arFields[2].value) +
-                parseInt(arFields[3].value)) /
-                4
-        );
-        
 
+        let rifma = parseInt(arFields[0].value) || 0;
+        let rithmic = parseInt(arFields[1].value) || 0;
+        let ind = parseInt(arFields[2].value) || 0;
+        let atmos = parseInt(arFields[3].value) || 0;
+
+        let value = parseFloat((rifma + rithmic + ind + atmos) / 4);
+        
         let ob = {};
         ob.OVERAGE = value;
 
+        console.log(rifma, rithmic, ind, atmos);
         console.log(value);
         setRating((prevData) => ({ ...prevData, ...ob }));
     }
