@@ -231,7 +231,7 @@ export default class MDB
                 console.log(mSim);
             }
 
-            data.overage = mSim;
+            data.overage = mSim[0];
         }
 
         let result = await {
