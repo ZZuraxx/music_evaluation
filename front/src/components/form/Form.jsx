@@ -227,6 +227,7 @@ export default function Form({ nameForm, arValue = {} }) {
                 parseInt(arFields[3].value)) /
                 4
         );
+        
 
         let ob = {};
         ob.OVERAGE = value;

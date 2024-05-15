@@ -3,7 +3,7 @@ const brands = {
     ARTIST: {
         type: 'DBRef',
         require: true,
-        default: 'None',
+        default: 'Неизвестный исполнитель',
         loc: "Исполнитель",
         sort: true,
         editable: true,
