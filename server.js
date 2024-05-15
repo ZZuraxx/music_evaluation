@@ -33,7 +33,6 @@ app.get('/api/get/:CollectionName/', async (req, res) => {
     let options = {};
     let mdb = new FetchServer.MDB(collectionName);
 
-    console.log(collectionName, req.query);
     if(req.query) {
         options.filter = {};
         //get by id element
@@ -75,7 +74,6 @@ app.get('/api/get/collection/list/', async(req, res) => {
     await mdb.getCollectionStats().then(result => {
         res.end(JSON.stringify(result));
     });
-    console.log(mdb)
 });
 
 

@@ -72,7 +72,6 @@ export default class Controll {
 
                     if(fieldSchema.type === 'DBRef') {
                         let dbref = item[fieldName];
-                        console.log(item, dbref)
                         newRow[fieldName] = {
                             ref: true,
                             collectionName: dbref.collection,

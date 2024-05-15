@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient, ObjectId, DBRef } from 'mongodb';
 import Schema from '../schema/index.js';
 import Controll from './Controll.js';
 
@@ -176,6 +176,7 @@ export default class MDB
         let data = Controll.prepareData(unPreparedData, this.schema);
         let simId = {};
         let sim = {};
+        let mElements = {};
 
         data.forEach(item => {
             for(let i in item) {
@@ -187,8 +188,18 @@ export default class MDB
 
                     simId[keyElement.collectionName].push(new ObjectId(keyElement._id));
                 }
+
+                if(i === 'MIN' || i === 'MAX') {
+                    if(!mElements[i])
+                        mElements[i] = [];
+
+                    mElements[i] = new ObjectId(keyElement._id);
+                }
             }
         });
+
+        console.info('melements')
+        console.log(mElements);
 
         if(Object.keys(simId).length > 0) {
             for(let collection in simId) {
@@ -202,6 +213,25 @@ export default class MDB
                     }
                 }).toArray();
             }
+        }
+
+        if(Object.keys(mElements).length > 0) {
+            let mSim = {};
+
+            for(let key in mElements) {
+                let mdb = new MDB('brands');
+                let ids = mElements[key];
+                let sort = key === 'MAX' ? -1 : 1;
+
+                mSim[key] = await mdb.collection
+                    .find( { 'ARTIST' : new DBRef('artist', ids) } )
+                    .limit(1)
+                    .sort( { 'OVERAGE' : sort } ) 
+                    .toArray();
+                console.log(mSim);
+            }
+
+            data.overage = mSim;
         }
 
         let result = await {

@@ -28,7 +28,7 @@ const brands = {
         editable: true,
         filter: true,
         step: 0.1,
-        sim: 'OVERALL'
+        sim: 'OVERAGE'
     },
     RHYTHMICS: {
         type: 'Rating',
@@ -39,7 +39,7 @@ const brands = {
         editable: true,
         filter: true,
         step: 0.1,
-        sim: 'OVERALL'
+        sim: 'OVERAGE'
     },
     INDIVIDUALITY: {
         type: 'Rating',
@@ -50,7 +50,7 @@ const brands = {
         editable: true,
         filter: true,
         step: 0.1,
-        sim: 'OVERALL'
+        sim: 'OVERAGE'
     },
     ATMOSPHERE: {
         type: 'Rating',
@@ -61,7 +61,7 @@ const brands = {
         editable: true,
         filter: true,
         step: 0.1,
-        sim: 'OVERALL'
+        sim: 'OVERAGE'
     },
     OVERAGE: {
         type: 'Rating_Overage',
