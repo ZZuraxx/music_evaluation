@@ -1,29 +1,28 @@
-import { MongoClient, ObjectId, DBRef } from 'mongodb';
-import Schema from '../schema/index.js';
-import Controll from './Controll.js';
+import { MongoClient, ObjectId, DBRef } from "mongodb";
+import Schema from "../schema/index.js";
+import Controll from "./Controll.js";
 
-export default class MDB
-{
-    static #PORT = '27017';
-    static #LOCATION = 'mongodb://localhost';
+export default class MDB {
+    static #PORT = "27017";
+    static #LOCATION = "mongodb://localhost";
     static #LOGIN;
     static #PSSWD;
-    static #DBNAME = 'music';
+    static #DBNAME = "music";
 
-    constructor(collectionName = '') {
-        console.log('start DB connect');
-        const url = [MDB.#LOCATION, MDB.#PORT].join(':') + '/';
+    constructor(collectionName = "") {
+        console.log("start DB connect");
+        const url = [MDB.#LOCATION, MDB.#PORT].join(":") + "/";
         this.client = new MongoClient(url);
         this.client.connect();
         this.db = this.client.db(MDB.#DBNAME);
 
-        if(collectionName != '') {
+        if (collectionName != "") {
             this.collection = this.db.collection(collectionName);
             this.schema = Schema[collectionName];
             this.controll = new Controll(collectionName);
         }
-        
-        console.log('DB connect success');
+
+        console.log("DB connect success");
     }
 
     changeCollection(collectionName) {
@@ -35,37 +34,34 @@ export default class MDB
             const db = this.client.db(MDB.#DBNAME);
             const count = await this.collection.countDocuments();
             return count;
-        }
-        catch(e) {
+        } catch (e) {
             console.log(e);
         }
-       
     }
 
     getCount(key) {
         let values = MDB.getValue(key);
-        if(values instanceof Array)
-            return values.length;
+        if (values instanceof Array) return values.length;
 
         return 0;
     }
 
     /**
-     * 
-     * @param {string} collectionName 
-     * @returns 
+     *
+     * @param {string} collectionName
+     * @returns
      */
     issetCollection(collectionName) {
         let result = this.collection;
         this.mongoClient.close();
-        return (result);
+        return result;
     }
 
     /**
-     * 
-     * @param {string} nameCollection 
-     * @param {Object} params 
-     * @returns 
+     *
+     * @param {string} nameCollection
+     * @param {Object} params
+     * @returns
      */
     async createCollection(nameCollection, params = {}) {
         let collection = await this.db.createCollection(nameCollection, params);
@@ -74,171 +70,175 @@ export default class MDB
     }
 
     /**
-     * 
-     * @param {string} collectionName 
-     * @param {object} filter 
-     * @param {array} select 
-     * @param {number} limit 
-     * @param {number} pageCount 
+     *
+     * @param {string} collectionName
+     * @param {object} filter
+     * @param {array} select
+     * @param {number} limit
+     * @param {number} pageCount
      */
     async getValue(options = {}) {
-        if(!this.collection)
-            return {};
-        
+        if (!this.collection) return {};
+
         let _this = this;
         let unPreparedData;
         //дефолтный фильтр
         let filter = options.filter ? options.filter : {};
 
         //поисковый запрос
-        if(options.search && options.search.length > 1) {
-            let arLine = options.search.split(' ').join('|')
+        if (options.search && options.search.length > 1) {
+            let arLine = options.search.split(" ").join("|");
             let query = new RegExp(arLine);
 
             let xor = [];
 
-            for(let index in this.schema) {
+            for (let index in this.schema) {
                 let item = this.schema[index];
 
-                if(item.searchable) {
+                if (item.searchable) {
                     let el = {};
-                    el[index] = { $regex: query, $options: 'i' };
+                    el[index] = { $regex: query, $options: "i" };
                     xor.push(el);
                 }
             }
 
-            filter = { 
-                $or: [...xor]
-            }
+            filter = {
+                $or: [...xor],
+            };
         }
 
         //min & max
         //this.collection.find().sort({ KEY : -1 }).limit(1).toArray();
         //Сортировка
-        if(options.sort) {
-            if(options.sort.max) {
+        if (options.sort) {
+            if (options.sort.max) {
                 options.sort.key = -1;
                 options.sort.name = options.sort.max;
                 options.sort.limit = 1;
             }
 
-            if(options.sort.min) {
+            if (options.sort.min) {
                 options.sort.key = 1;
                 options.sort.name = options.sort.min;
                 options.sort.limit = 1;
             }
 
-            if(options.sort.field && options.sort.order) {
-                options.sort.key = (options.sort.order === 'ASC') ? 1 : -1;
+            if (options.sort.field && options.sort.order) {
+                options.sort.key = options.sort.order === "ASC" ? 1 : -1;
                 options.sort.name = options.sort.field;
                 options.sort.limit = 100;
             }
         }
 
         //custom filter
-        if(options.filter.filter === 'Y') {
+        if (options.filter.filter === "Y") {
             filter = {};
 
-            for(let i in options.filter) {
+            for (let i in options.filter) {
                 let el = options.filter[i];
                 let from, to;
 
-                if(i === 'filter')
-                    continue;
+                if (i === "filter") continue;
 
-                switch(_this.schema[i].type) {
-                    case 'Number':
+                switch (_this.schema[i].type) {
+                    case "Number":
                         from = parseInt(el.FROM);
                         to = parseInt(el.TO);
-                    break;
+                        break;
 
-                    case 'Date':
+                    case "Date":
                         from = new Date(el.FROM);
                         to = new Date(el.TO);
-                    break;
+                        break;
                 }
-                
-                filter[i] = { $gte: from , $lte: to }
+
+                filter[i] = { $gte: from, $lte: to };
             }
         }
 
-        if(options.sort && options.sort.key) {
+        if (options.sort && options.sort.key) {
             let sort = {};
             sort[options.sort.name] = options.sort.key;
             //
-            unPreparedData = await this.collection.find().sort(sort).limit(options.sort.limit).toArray();
-        }
-        else {
+            unPreparedData = await this.collection
+                .find()
+                .sort(sort)
+                .limit(options.sort.limit)
+                .toArray();
+        } else {
             unPreparedData = await this.collection.find(filter).toArray();
         }
-
 
         let data = Controll.prepareData(unPreparedData, this.schema);
         let simId = {};
         let sim = {};
         let mElements = {};
 
-        data.forEach(item => {
-            for(let i in item) {
+        data.forEach((item) => {
+            for (let i in item) {
                 let keyElement = item[i];
 
-                if(keyElement.ref) {
-                    if(!simId[keyElement.collectionName])
+                if (keyElement.ref) {
+                    if (!simId[keyElement.collectionName])
                         simId[keyElement.collectionName] = [];
 
-                    simId[keyElement.collectionName].push(new ObjectId(keyElement._id));
+                    simId[keyElement.collectionName].push(
+                        new ObjectId(keyElement._id)
+                    );
                 }
 
-                if(i === 'MIN' || i === 'MAX') {
-                    if(!mElements[i])
-                        mElements[i] = [];
+                if (i === "MIN" || i === "MAX") {
+                    if (!mElements[i]) mElements[i] = [];
 
                     mElements[i] = new ObjectId(keyElement._id);
                 }
             }
         });
 
-        console.info('melements')
-        console.log(mElements);
-
-        if(Object.keys(simId).length > 0) {
-            for(let collection in simId) {
+        if (Object.keys(simId).length > 0) {
+            for (let collection in simId) {
                 let mdb = new MDB(collection);
                 let ids = simId[collection];
                 sim[collection] = [];
 
-                sim[collection] = await mdb.collection.find({
-                    _id: {
-                        $in: ids
-                    }
-                }).toArray();
+                sim[collection] = await mdb.collection
+                    .find({
+                        _id: {
+                            $in: ids,
+                        },
+                    })
+                    .toArray();
             }
         }
 
-        if(Object.keys(mElements).length > 0) {
+        let overage = {};
+
+        if (Object.keys(mElements).length > 0) {
             let mSim = {};
 
-            for(let key in mElements) {
-                let mdb = new MDB('brands');
-                let ids = mElements[key];
-                let sort = key === 'MAX' ? -1 : 1;
-
+            for (let key in mElements) {
+                let mdb = new MDB("brands");
+                let sort = key === "MAX" ? -1 : 1;
+                console.log(data);
                 mSim[key] = await mdb.collection
-                    .find( { 'ARTIST' : new DBRef('artist', ids) } )
+                    .find({
+                        ARTIST: new DBRef('artist', data[0]._id),
+                    })
                     .limit(1)
-                    .sort( { 'OVERAGE' : sort } ) 
+                    .sort({ OVERAGE: sort })
                     .toArray();
                 console.log(mSim);
             }
 
-            data.overage = mSim[0];
+            overage = mSim[0];
         }
 
         let result = await {
             schema: this.schema,
             data: data,
-            sim : sim
-        }
+            sim: sim,
+            overage: overage
+        };
 
         return result;
     }
@@ -246,8 +246,7 @@ export default class MDB
     static isJson(value) {
         try {
             JSON.parse(value);
-        }
-        catch(error) {
+        } catch (error) {
             return false;
         }
 
@@ -255,23 +254,24 @@ export default class MDB
     }
 
     /**
-     * 
-     * @param {string} collectionName 
-     * @param {object} props 
-     * @returns 
+     *
+     * @param {string} collectionName
+     * @param {object} props
+     * @returns
      */
     async setValue(props = {}) {
         let id = 0;
         let controllData = this.controll.preparePost(props);
-        
-        if(controllData._id) { // UPDATE
+
+        if (controllData._id) {
+            // UPDATE
             let result = await this.collection.updateOne(
                 { _id: controllData._id },
                 { $set: controllData }
             );
             id = result;
-        }
-        else { // ADD
+        } else {
+            // ADD
             id = await this.collection.insertOne(controllData);
         }
 
@@ -279,14 +279,14 @@ export default class MDB
     }
 
     async removeValue(_id) {
-        await this.collection.deleteOne({_id : new ObjectId(_id)})
+        await this.collection.deleteOne({ _id: new ObjectId(_id) });
     }
 
     async getCollectionStats() {
         let result = [];
         let sources = await this.db.listCollections().toArray();
 
-        for(const source of sources) {
+        for (const source of sources) {
             const mdb = new MDB(source.name);
             const data = await mdb.getCollectonInfo();
             result.push(data);
@@ -298,11 +298,11 @@ export default class MDB
     async getCollectonInfo() {
         let _this = this;
 
-        return new Promise(async resolve => {
+        return new Promise(async (resolve) => {
             resolve({
                 TITLE: _this.collection.namespace,
                 INDEXES: (await _this.collection.indexes()).length,
-                DOCUMENTS: await _this.collection.countDocuments()
+                DOCUMENTS: await _this.collection.countDocuments(),
             });
         });
     }
