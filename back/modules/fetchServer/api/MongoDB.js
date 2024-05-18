@@ -174,7 +174,7 @@ export default class MDB {
         let sim = {};
         let mElements = {};
 
-        data.forEach((item) => {
+        data.forEach((item, index) => {
             for (let i in item) {
                 let keyElement = item[i];
 
@@ -188,9 +188,7 @@ export default class MDB {
                 }
 
                 if (i === "MIN" || i === "MAX") {
-                    if (!mElements[i]) mElements[i] = [];
-
-                    mElements[i] = new ObjectId(keyElement._id);
+                    mElements[i] = index;
                 }
             }
         });
@@ -211,33 +209,33 @@ export default class MDB {
             }
         }
 
-        let overage = {};
-
         if (Object.keys(mElements).length > 0) {
             let mSim = {};
 
             for (let key in mElements) {
                 let mdb = new MDB("brands");
                 let sort = key === "MAX" ? -1 : 1;
-                console.log(data);
-                mSim[key] = await mdb.collection
+                let index = mElements[key];
+                let value = await mdb.collection
                     .find({
                         ARTIST: new DBRef('artist', data[0]._id),
                     })
                     .limit(1)
                     .sort({ OVERAGE: sort })
                     .toArray();
-                console.log(mSim);
-            }
 
-            overage = mSim[0];
+                    console.log(index, key, value);
+
+                    if(!data[index])
+                        data[index] = {};
+                data[index][key] = value[0].OVERAGE;
+            }
         }
 
         let result = await {
             schema: this.schema,
             data: data,
-            sim: sim,
-            overage: overage
+            sim: sim
         };
 
         return result;
