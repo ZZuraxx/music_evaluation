@@ -224,11 +224,14 @@ export default class MDB {
                     .sort({ OVERAGE: sort })
                     .toArray();
 
-                    console.log(index, key, value);
-
                     if(!data[index])
                         data[index] = {};
-                data[index][key] = value[0].OVERAGE;
+                if(value[0]){
+                    data[index][key] = value[0].OVERAGE;
+                } else {
+                    data[index][key] = 0;
+                }
+                
             }
         }
 

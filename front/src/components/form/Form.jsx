@@ -152,6 +152,7 @@ export default function Form({ nameForm, arValue = {} }) {
                                     style={{ maxWidth: 200 }}
                                     value={rating[item.code]}
                                     itemStyles={myStyles}
+                                    
                                 />
                                 <input
                                     type="hidden"
