@@ -1,0 +1,360 @@
+[{
+  "_id": {
+    "$oid": "6656ec4a1cccfe8518aa9c9d"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656e9ce1cccfe8518aa9c93"
+    }
+  },
+  "TITLE": "Europapa",
+  "POSTER": "uploads/199916.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 5,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656ec8e1cccfe8518aa9c9e"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656e9ce1cccfe8518aa9c93"
+    }
+  },
+  "TITLE": "Friesenjung",
+  "POSTER": "uploads/3798a38149e7c5a7138b650c81daa140.1000x1000x1.png",
+  "RHYMES": 4,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 5,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 4.5
+},
+{
+  "_id": {
+    "$oid": "6656ecce1cccfe8518aa9c9f"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656e9ce1cccfe8518aa9c93"
+    }
+  },
+  "TITLE": "Jackass",
+  "POSTER": "uploads/maxresdefault (1).jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 5,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4.25
+},
+{
+  "_id": {
+    "$oid": "6656ed211cccfe8518aa9ca0"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ea6c1cccfe8518aa9c95"
+    }
+  },
+  "TITLE": "The Code",
+  "POSTER": "uploads/600x600bf-60.jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 5,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 3,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656ed761cccfe8518aa9ca1"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eaa81cccfe8518aa9c96"
+    }
+  },
+  "TITLE": "бэйслайн бизнес",
+  "POSTER": "uploads/maxresdefault (2).jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 3,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656edfc1cccfe8518aa9ca2"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eb051cccfe8518aa9c97"
+    }
+  },
+  "TITLE": "ЛАДА ТУРБО СПЕЙС",
+  "POSTER": "uploads/800x800cc.jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 3,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656ee841cccfe8518aa9ca3"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eb491cccfe8518aa9c98"
+    }
+  },
+  "TITLE": "Апное",
+  "POSTER": "uploads/XjXsv3w0Rls.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 3,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656f0251cccfe8518aa9ca4"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eb491cccfe8518aa9c98"
+    }
+  },
+  "TITLE": "Холодно",
+  "POSTER": "uploads/b2264c392ef08eb543dd83edb7ded40e.webp",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656f2921cccfe8518aa9ca5"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eb901cccfe8518aa9c99"
+    }
+  },
+  "TITLE": "Кукла колдуна",
+  "POSTER": "uploads/akkusticheskiy-albom-korol-i-shut-1000x650.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656f2f41cccfe8518aa9ca6"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656eb901cccfe8518aa9c99"
+    }
+  },
+  "TITLE": "Лесник",
+  "POSTER": "uploads/scale_1200.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656f37b1cccfe8518aa9ca7"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebbb1cccfe8518aa9c9a"
+    }
+  },
+  "TITLE": "Звезда по имени солнце",
+  "POSTER": "uploads/scale_1200.png",
+  "RHYMES": 3,
+  "RHYTHMICS": 3,
+  "INDIVIDUALITY": 5,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656f3ba1cccfe8518aa9ca8"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebbb1cccfe8518aa9c9a"
+    }
+  },
+  "TITLE": "Группа крови",
+  "POSTER": "uploads/cd1-00.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 5,
+  "INDIVIDUALITY": 5,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4.25
+},
+{
+  "_id": {
+    "$oid": "6656f3fc1cccfe8518aa9ca9"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebbb1cccfe8518aa9c9a"
+    }
+  },
+  "TITLE": "Перемен",
+  "POSTER": "uploads/m1000x1000.jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 4.25
+},
+{
+  "_id": {
+    "$oid": "6656f4481cccfe8518aa9caa"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebbb1cccfe8518aa9c9a"
+    }
+  },
+  "TITLE": "Пачка сигарет",
+  "POSTER": "uploads/orig.jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656f4a91cccfe8518aa9cab"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebe31cccfe8518aa9c9b"
+    }
+  },
+  "TITLE": "’Till I Collapse",
+  "POSTER": "uploads/artworks-000497430150-6cw3me-t500x500.jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 3,
+  "INDIVIDUALITY": 3,
+  "ATMOSPHERE": 5,
+  "OVERAGE": 3.75
+},
+{
+  "_id": {
+    "$oid": "6656f54a1cccfe8518aa9cac"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebe31cccfe8518aa9c9b"
+    }
+  },
+  "TITLE": "Mockingbird",
+  "POSTER": "uploads/1200x1200bf-60.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 3,
+  "OVERAGE": 3.5
+},
+{
+  "_id": {
+    "$oid": "6656f57e1cccfe8518aa9cad"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebe31cccfe8518aa9c9b"
+    }
+  },
+  "TITLE": "Lose Yourself",
+  "POSTER": "uploads/scale_1200 (1).jpg",
+  "RHYMES": 4,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4
+},
+{
+  "_id": {
+    "$oid": "6656f5d61cccfe8518aa9cae"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ebfe1cccfe8518aa9c9c"
+    }
+  },
+  "TITLE": "Duality",
+  "POSTER": "uploads/artworks-000178788281-4f9qkt-t500x500.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 4,
+  "INDIVIDUALITY": 3,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 3.5
+},
+{
+  "_id": {
+    "$oid": "6656f6301cccfe8518aa9caf"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ea3d1cccfe8518aa9c94"
+    }
+  },
+  "TITLE": "Sonne",
+  "POSTER": "uploads/artworks-7nZD2vyWR1zZmv4O-ZqnsGg-t500x500.jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 5,
+  "INDIVIDUALITY": 3,
+  "ATMOSPHERE": 3,
+  "OVERAGE": 3.5
+},
+{
+  "_id": {
+    "$oid": "6656f6651cccfe8518aa9cb0"
+  },
+  "ARTIST": {
+    "$ref": "artist",
+    "$id": {
+      "$oid": "6656ea3d1cccfe8518aa9c94"
+    }
+  },
+  "TITLE": " DEUTSCHLAND",
+  "POSTER": "uploads/scale_1200 (2).jpg",
+  "RHYMES": 3,
+  "RHYTHMICS": 5,
+  "INDIVIDUALITY": 4,
+  "ATMOSPHERE": 4,
+  "OVERAGE": 4
+}]

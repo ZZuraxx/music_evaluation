@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "6656e9ce1cccfe8518aa9c93"
+  },
+  "TITLE": "Joost",
+  "PHOTO": "uploads/199916.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656ea3d1cccfe8518aa9c94"
+  },
+  "TITLE": "Ramshtien",
+  "PHOTO": "uploads/65545381-rammstein-logotip-46.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656ea6c1cccfe8518aa9c95"
+  },
+  "TITLE": "Nemo",
+  "PHOTO": "uploads/600x600bf-60.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656eaa81cccfe8518aa9c96"
+  },
+  "TITLE": "CMH",
+  "PHOTO": "uploads/orig.webp",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656eb051cccfe8518aa9c97"
+  },
+  "TITLE": "Lida",
+  "PHOTO": "uploads/e38f989eafe454e0f31362b82fe4842c.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656eb491cccfe8518aa9c98"
+  },
+  "TITLE": "Кишлак",
+  "PHOTO": "uploads/pic.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656eb901cccfe8518aa9c99"
+  },
+  "TITLE": "Король и Шут",
+  "PHOTO": "uploads/kish.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656ebbb1cccfe8518aa9c9a"
+  },
+  "TITLE": "Кино",
+  "PHOTO": "uploads/orig.jpg",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656ebe31cccfe8518aa9c9b"
+  },
+  "TITLE": "Eminem",
+  "PHOTO": "uploads/12313123132.png",
+  "MAX": 0,
+  "MIN": 0
+},
+{
+  "_id": {
+    "$oid": "6656ebfe1cccfe8518aa9c9c"
+  },
+  "TITLE": "Slipknot",
+  "PHOTO": "uploads/2025cfdf19a60419fc422ddb55e7c623.jpg",
+  "MAX": 0,
+  "MIN": 0
+}]
