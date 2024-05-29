@@ -7,24 +7,29 @@
 
 .simple-table tr {
     height: max-content;
+    background: #e3e3e3;
+    border-radius: 10px;
 }
 
 .simple-table thead th {
     padding:5px 20px;
     background: #a0a3a7;
     color: #fff;
+    border-radius: 10px;
 }
 
 .simple-table thead th.sortable {
     cursor: pointer;
     position:relative;
+    border-radius: 10px;
 }
 
 .simple-table thead th.sortable:after {
     content: ' ';
     margin-left:5px;
     width:10px;
-    display:inline-block
+    display:inline-block;
+    border-radius: 10px;
 }
 
 .simple-table thead th.sortable.ASC:after {

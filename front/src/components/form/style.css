@@ -4,8 +4,8 @@ form.editForm {
     flex-wrap:wrap;
     gap:10px;
     padding:20px;
-    background: #f3f3f3;
-    border-radius:4px;
+    background: #D3D3D3;
+    border-radius:10px;
     max-width:300px;
     margin:20px;
     height: max-content;

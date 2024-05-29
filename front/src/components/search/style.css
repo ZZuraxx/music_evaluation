@@ -2,10 +2,12 @@
     width:100%;
     margin: 10px 0;
     display:flex;
+    
 }
 
 .searchPanel label {
     width: 90%;
+    background: #e3e3e3;
 }
 
 .searchPanel label input {
