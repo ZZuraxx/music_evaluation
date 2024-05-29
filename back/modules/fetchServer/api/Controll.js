@@ -30,6 +30,7 @@ export default class Controll {
                    switch(checkSchema.type) {
                     case "Number":
                         case 'Rating':
+                            case 'Rating_Overage':
                         data[i] = parseFloat(checkElement);
                     break;
 
@@ -48,6 +49,10 @@ export default class Controll {
                     case 'DBRef':
                         data[i] = new DBRef(checkSchema.collection, new ObjectId(checkElement));
                     break;
+
+                    case 'File':
+                        data[i] = checkElement;
+                        break;
                    }
                 }
                 else {

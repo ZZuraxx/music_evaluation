@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Logo from '../../images/logo.png';
+import Logo from '../../images/free-icon-music-note-1778809.png';
 import './style.css';
 import Menu from '../menu/Menu';
 import lang from './lang.js';
@@ -29,7 +29,7 @@ export default function Header({ curPath }) {
         <header>
             <div className='LogoGroup'>
                 <img src={Logo} width="40px" alt="" />
-                <h1>SPA</h1>
+                <h1>MUSIC</h1>
             </div>
 
             <Menu curPath={curPath} />

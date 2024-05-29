@@ -1,11 +1,11 @@
 const lang = {
     index: "Главная",
-    brands: "Бренды",
+    brands: "Треки",
     cards: "Карточки",
     models: "Модели",
     menu: "Меню",
     owners: "Владельцы",
-    services: "Услуги"
+    artist: "Исполнители"
 }
 
 export default lang;

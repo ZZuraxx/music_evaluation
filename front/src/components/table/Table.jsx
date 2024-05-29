@@ -136,7 +136,6 @@ export default function Table({nameTable, onChange, query = ''})
                 getIndex++;
             }
 
-
             if(curSchema.code === '_id') {
                 value = col.substr(0, 5)
             }
@@ -149,6 +148,10 @@ export default function Table({nameTable, onChange, query = ''})
             if(curSchema.type === 'Phone') {
                 let callTo = 'tel:' + col;
                 value = <a href={callTo}>{col}</a>
+            }
+
+            if(curSchema.type === 'File') {
+                value = <img src={'./' + col} width='150px' />
             }
             
             if(curSchema.type === 'Date') {

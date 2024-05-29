@@ -1,4 +1,4 @@
-const brands = {
+const tracks = {
     _id: {},
     ARTIST: {
         type: 'DBRef',
@@ -18,6 +18,12 @@ const brands = {
         editable: true,
         searchable: true,
         //list: []
+    },
+    POSTER: {
+        type: 'File',
+        require: false,
+        loc: 'Обложка',
+        editable: true
     },
     RHYMES: {
         type: 'Rating',
@@ -76,4 +82,4 @@ const brands = {
     }
 };
 
-export default brands;
+export default tracks;

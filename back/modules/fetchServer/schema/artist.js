@@ -8,6 +8,12 @@ const artist = {
         sort: true,
         editable: true,
     },
+    PHOTO: {
+        type: 'File',
+        require: false,
+        loc: "Фото исполнителя",
+        editable: true
+    },
     MAX: {
         type: 'Max',
         editable: false,

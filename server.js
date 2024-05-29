@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import fileUpload from 'express-fileupload';
 import FetchServer from './back/modules/fetchServer/index.js';
 import schema from './back/modules/fetchServer/schema/index.js';
 import { MongoClient, ObjectId } from 'mongodb';
@@ -16,6 +17,10 @@ app.use(morgan(':method :url :status :res[content-lenght] - :response-time ms'))
 //app.set('back', 'back');
 app.use(express.urlencoded({ extended: true }));
 //app.use(static(`back`));
+//Поддержка загрузки файлов
+app.use(fileUpload({}));
+//Открытие доступа к папке куда будут грузиться файлы
+app.use(express.static('front/public/uploads'));
 
 app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -86,8 +91,21 @@ app.get('/api/get/schema/:Name/', async (req, res) => {
 app.post('/api/post/:CollectionName/', async (req, res) => {
     const collectionName = req.params.CollectionName.toLowerCase();
     let mdb = new FetchServer.MDB(collectionName);
+    let query = req.body;    
 
-    const result = await mdb.setValue(req.body);
+    console.log(query);
+    //Загрузка файла если он есть
+    if(req.files) {
+        console.log('file: ', req.files)
+        for(let i in req.files) {
+            let file = req.files[i];
+            let fileName = 'uploads/'+file.name;
+            file.mv('front/public/' + fileName);
+            query[i] = fileName;
+        }
+    }
+
+    const result = await mdb.setValue(query);
 
     if(result.acknowledged) {
         let newUrl = config.client + collectionName + '?id=' + String(result.insertedId) + '&set=y';
