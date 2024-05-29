@@ -6,6 +6,41 @@ header {
     padding:10px 30px;
 }
 
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.4s ease-in-out;
+ }
+.ten a {
+    color: #E7E5DD;
+    border-radius: 25px;
+    border: 3px solid #E7E5DD;
+ }
+ .ten a:hover {
+    color: #BDB9AB;
+    background: #E7E5DD;
+ }
+ .ten a span {
+    opacity: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+ }
+ .ten a:hover span {
+    opacity: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #BDB9AB;
+ }
+
 header .LogoGroup {
     display: flex;
     width: 60px;

@@ -30,13 +30,13 @@ export default function Header({ curPath }) {
             <div className='LogoGroup'>
                 <img src={Logo} width="40px" alt="" />
                 <h1>MUSIC</h1>
-                <a href='http://localhost:3000/tracks'>Треки</a>
+                <a className='' href='http://localhost:3000/tracks'>Треки</a>
                 <a href='http://localhost:3000/artist'>Исполнители</a>
             </div>
 
             <Menu curPath={curPath} />
 
-            <div className='timer'>{ now.toLocaleTimeString() }</div>
+            <div class='ten'>{ now.toLocaleTimeString() }</div>
         </header>
         <h2>
             {curPath != "" && lang[curPath]}
