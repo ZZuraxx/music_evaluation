@@ -1,9 +1,10 @@
 header {
     display: flex;
-    background: #696969;
+    background: #7f7f7f;
     border-bottom: 1px solid #999;
     justify-content: space-between;
     padding:10px 30px;
+    background-image: url();
 }
 
 a {

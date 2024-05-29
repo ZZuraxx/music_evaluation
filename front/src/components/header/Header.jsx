@@ -30,8 +30,8 @@ export default function Header({ curPath }) {
             <div className='LogoGroup'>
                 <img src={Logo} width="40px" alt="" />
                 <h1>MUSIC</h1>
-                <a className='ten' href='http://localhost:3000/tracks'>Треки</a>
-                <a className='ten' href='http://localhost:3000/artist'>Исполнители</a>
+                <a class='ten' href='http://localhost:3000/tracks'>Треки</a>
+                <a class='ten' href='http://localhost:3000/artist'>Исполнители</a>
             </div>
 
             <Menu curPath={curPath} />
